@@ -1,0 +1,31 @@
+baseURL = "https://www.yockyard.com/"
+languageCode = "en-us"
+title = "Yockyard"
+
+[params]
+    description = "This is totally Your blog"
+
+[menu]
+    [[menu.main]]
+        name = "home"
+        title = "Home"
+        url = "/"
+        weight = 1
+    [[menu.main]]
+        name = "post"
+        title = "Blog"
+        url = "/post"
+        weight = 2
+    [[menu.main]]
+        name = "about"
+        title = "About"
+        url = "/about"
+        weight = 3
+
+[permalinks]
+    posts = "/:year/:month/:title"
+
+[taxonomies]
+	category = "categories"
+	serires = "series"
+	tag="tags"

@@ -1,0 +1,21 @@
+{{ define "main" }}
+
+<main>
+  <section>
+    <header>
+      <h1>All {{ .Title }}</h1>
+    </header>
+
+    <article>
+      <ul>
+        {{ range .Pages.ByPublishDate.Reverse }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }} - <time datetime="{{.Date}}">{{ .Date.Format "2006/01/02 15:04:05" }}</time></a></li>
+        {{ end }}
+      </ul>
+    </article>
+  </section>
+</main>
+
+{{ partial "sitenav" }}
+
+{{ end }}

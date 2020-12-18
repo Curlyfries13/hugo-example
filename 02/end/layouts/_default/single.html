@@ -1,0 +1,23 @@
+{{ define "title" }}
+{{ .Title }}
+{{ end }}
+{{ define "main" }}
+<main>
+  <section>
+    <header>
+      <h1>{{.Title}}</h1>
+    </header>
+
+    <article>
+      {{.Content}}
+    </article>
+
+    <footer>
+			<ul>
+				{{ with .PrevInSection }}<li><a href="{{ .Permalink }}">&laquo; {{ .Title }}</a></li>{{ end }}
+				{{ with .NextInSection }}<li><a href="{{ .Permalink }}">{{ .Title }} &raquo;</a></li>{{ end }}
+			</ul>
+    </footer>
+  </section>
+</main>
+{{ end }}

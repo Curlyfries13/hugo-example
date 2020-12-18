@@ -1,0 +1,34 @@
+{{ define "main" }}
+<main>
+  <section>
+    <!-- this section is populated from content/_index.md -->
+    <header>
+      <h1>{{.Title}}</h1>
+    </header>
+
+    <article>
+      {{.Content}}
+    </article>
+
+    <!-- this section is populated by pulling posts from the site -->
+    {{ range first 5 (where .Site.RegularPages.ByPublishDate.Reverse "Section" "posts") }}
+        <article>
+            <header>
+              <h2>{{ .Title }}</h2>
+              <p><time datetime="{{.Date}}">{{ .Date.Format "Mon, Jan 2, 2006" }}</time></p>
+            </header>
+            {{ .Summary }}
+            <nav>
+              <ul>
+                <li><a href="{{ .RelPermalink }}">Read More &raquo;</a></li>
+              </ul>
+            </nav>
+        </article>
+    {{ end }}
+    <footer>
+      <a href="{{ "posts/" | absURL }}">All posts...</a>
+    </footer>
+  </section>
+  {{ partial "sitenav" }}
+</main>
+{{ end }}
